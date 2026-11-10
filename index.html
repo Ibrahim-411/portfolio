@@ -63,6 +63,8 @@
 <body class="overflow-x-hidden">
   <a href="#main" class="sr-only z-[100] rounded-full bg-ink px-5 py-3 font-bold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to content</a>
 
+  <div id="progress" class="fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-gradient-to-r from-brand via-ember to-sun" style="transform:scaleX(0)" aria-hidden="true"></div>
+
   <!-- Icon sprite -->
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
     <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
@@ -117,8 +119,8 @@
   <main id="main">
     <!-- ===================== HERO ===================== -->
     <section id="top" class="relative isolate overflow-hidden">
-      <div class="pointer-events-none absolute -left-24 top-24 -z-10 size-72 rounded-full bg-sun/30 blur-3xl" aria-hidden="true"></div>
-      <div class="pointer-events-none absolute -right-24 top-0 -z-10 size-96 rounded-full bg-brand/10 blur-3xl" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -left-24 top-24 -z-10 size-72 animate-drift rounded-full bg-sun/30 blur-3xl" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-24 top-0 -z-10 size-96 animate-drift rounded-full bg-brand/10 blur-3xl [animation-delay:-5s] [animation-direction:reverse]" aria-hidden="true"></div>
 
       <div class="container-x grid items-center gap-12 pb-16 pt-10 sm:pt-14 lg:grid-cols-12 lg:gap-8 lg:pb-24 lg:pt-16">
         <div class="lg:col-span-7">
@@ -127,8 +129,9 @@
             Open to work · On-site or hybrid · Chennai
           </p>
 
-          <h1 class="reveal mt-6 text-[2.75rem] font-extrabold leading-[0.98] sm:text-6xl lg:text-[4.4rem] xl:text-[5rem]" style="--d:80ms">
-            <span class="sr-only">Ibrahim K, Digital Marketing Executive. </span>I help businesses <span class="mark-sun">get found:</span>
+          <h1 class="split mt-6 text-[2.75rem] font-extrabold leading-[0.98] sm:text-6xl lg:text-[4.4rem] xl:text-[5rem]">
+            <span class="sr-only">Ibrahim K, Digital Marketing Executive. I help businesses get found:</span>
+            <span aria-hidden="true"><span class="w" style="--i:0">I</span> <span class="w" style="--i:1">help</span> <span class="w" style="--i:2">businesses</span> <span class="w" style="--i:3"><span class="mark-sun">get found:</span></span></span>
           </h1>
           <p class="reveal mt-6 max-w-xl text-xl font-semibold leading-snug text-slate-800 sm:text-2xl" style="--d:160ms">
             in search, in AI answers, and on the platforms where their customers are already looking.
@@ -151,28 +154,31 @@
         </div>
 
         <!-- Portrait -->
-        <div class="reveal relative mx-auto w-full max-w-[24rem] lg:col-span-5 lg:max-w-none" style="--d:140ms">
-          <div class="relative mx-auto w-full max-w-[27.5rem]">
-            <div class="relative aspect-[4/5] overflow-hidden rounded-[2.75rem] bg-brand shadow-lift ring-1 ring-brand-deep/30">
-              <div class="absolute -right-16 -top-16 size-56 rounded-full bg-sun" aria-hidden="true"></div>
-              <div class="absolute -left-12 bottom-[-18%] size-[78%] rounded-full bg-ember" aria-hidden="true"></div>
-              <div class="absolute left-[8%] top-[10%] size-28 rounded-full border-[14px] border-white/25" aria-hidden="true"></div>
+        <div class="reveal relative mx-auto w-full max-w-[24rem] lg:col-span-5 lg:max-w-none" data-reveal="zoom" style="--d:140ms">
+          <div class="relative mx-auto w-full max-w-[27.5rem]" data-tilt>
+            <div class="tilt-card relative aspect-[4/5] overflow-hidden rounded-[2.75rem] bg-brand shadow-lift ring-1 ring-brand-deep/30">
+              <div class="parallax absolute inset-0" style="--d:-14" aria-hidden="true">
+                <div class="absolute -right-16 -top-16 size-56 animate-drift rounded-full bg-sun"></div>
+              </div>
+              <div class="parallax absolute inset-0" style="--d:-8" aria-hidden="true">
+                <div class="absolute -left-12 bottom-[-18%] size-[78%] animate-breathe rounded-full bg-ember"></div>
+              </div>
+              <div class="parallax absolute inset-0" style="--d:-20" aria-hidden="true">
+                <div class="absolute left-[8%] top-[10%] size-28 animate-spin-slow rounded-full border-[14px] border-white/25 border-t-white/60"></div>
+              </div>
               <div class="dots absolute bottom-6 right-6 size-24 opacity-40" aria-hidden="true"></div>
-              <img
-                src="assets/img/ibrahim-cutout.webp"
-                srcset="assets/img/ibrahim-cutout-sm.webp 360w, assets/img/ibrahim-cutout.webp 640w"
-                sizes="(min-width:1024px) 440px, 80vw"
-                width="640" height="718"
-                alt="Portrait of Ibrahim K, a digital marketing executive from Chennai, wearing a navy blazer and white shirt"
-                fetchpriority="high" decoding="async"
-                class="absolute bottom-0 left-1/2 h-[96%] w-auto max-w-none -translate-x-1/2 object-contain">
+              <div class="parallax absolute inset-0 flex items-end justify-center" style="--d:10">
+                <img
+                  src="assets/img/ibrahim-cutout.webp"
+                  srcset="assets/img/ibrahim-cutout-sm.webp 360w, assets/img/ibrahim-cutout.webp 640w"
+                  sizes="(min-width:1024px) 440px, 80vw"
+                  width="640" height="718"
+                  alt="Portrait of Ibrahim K, a digital marketing executive from Chennai, wearing a navy blazer and white shirt"
+                  fetchpriority="high" decoding="async"
+                  class="h-[96%] w-auto max-w-none object-contain">
+              </div>
+              <div class="tilt-glare pointer-events-none absolute inset-0" aria-hidden="true"></div>
             </div>
-
-            <!-- floating chips -->
-            <span class="absolute -left-3 top-[14%] animate-float rounded-2xl bg-white px-4 py-2.5 text-sm font-extrabold text-brand shadow-soft ring-1 ring-line sm:-left-8" aria-hidden="true">SEO</span>
-            <span class="absolute -right-2 top-[34%] animate-float rounded-2xl bg-white px-4 py-2.5 text-sm font-extrabold text-ember-ink shadow-soft ring-1 ring-line [animation-delay:-2s] sm:-right-7" aria-hidden="true">GEO · AI search</span>
-            <span class="absolute -left-2 bottom-[16%] animate-float rounded-2xl bg-white px-4 py-2.5 text-sm font-extrabold text-ink shadow-soft ring-1 ring-line [animation-delay:-4s] sm:-left-9" aria-hidden="true">Meta + Amazon Ads</span>
-            <span class="absolute -bottom-4 right-6 animate-float rounded-2xl bg-sun px-4 py-2.5 text-sm font-extrabold text-ink shadow-soft [animation-delay:-1s]" aria-hidden="true">WooCommerce</span>
           </div>
         </div>
       </div>
@@ -187,7 +193,7 @@
             <dt class="mt-2 text-sm font-bold text-muted">Live WordPress business sites built</dt>
           </div>
           <div class="reveal card card-hover !p-5 sm:!p-7" style="--d:80ms">
-            <dd class="font-display text-5xl font-extrabold text-ember-ink sm:text-6xl"><span data-count="6">6</span></dd>
+            <dd class="font-display text-5xl font-extrabold text-ember-ink sm:text-6xl"><span data-count="7">7</span></dd>
             <dt class="mt-2 text-sm font-bold text-muted">Projects shipped, from SEO to storefronts</dt>
           </div>
           <div class="reveal card card-hover !p-5 sm:!p-7" style="--d:160ms">
@@ -204,7 +210,7 @@
 
     <!-- marquee -->
     <div class="overflow-hidden border-y border-ink/10 bg-sun py-4" aria-hidden="true">
-      <div class="flex w-max animate-marquee gap-10 whitespace-nowrap font-display text-xl font-extrabold text-ink sm:text-2xl">
+      <div class="marquee-track flex w-max animate-marquee gap-10 whitespace-nowrap font-display text-xl font-extrabold text-ink sm:text-2xl">
         <div class="flex gap-10"><span>SEO</span><span>✦</span><span>GEO</span><span>✦</span><span>Meta Ads</span><span>✦</span><span>Amazon Ads</span><span>✦</span><span>WordPress</span><span>✦</span><span>WooCommerce</span><span>✦</span><span>GA4</span><span>✦</span><span>Shopify (learning)</span><span>✦</span></div>
         <div class="flex gap-10"><span>SEO</span><span>✦</span><span>GEO</span><span>✦</span><span>Meta Ads</span><span>✦</span><span>Amazon Ads</span><span>✦</span><span>WordPress</span><span>✦</span><span>WooCommerce</span><span>✦</span><span>GA4</span><span>✦</span><span>Shopify (learning)</span><span>✦</span></div>
       </div>
@@ -214,11 +220,11 @@
     <section id="about" class="py-20 lg:py-28">
       <div class="container-x">
         <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div class="reveal lg:col-span-5">
+          <div class="reveal lg:col-span-5" data-reveal="left">
             <span class="eyebrow">About</span>
             <h2 class="section-title">Search, AI answers, paid media and WordPress. <span class="text-brand">One person.</span></h2>
           </div>
-          <div class="reveal space-y-5 text-lg leading-relaxed text-slate-700 lg:col-span-7" style="--d:100ms">
+          <div class="reveal space-y-5 text-lg leading-relaxed text-slate-700 lg:col-span-7" data-reveal="right" style="--d:100ms">
             <p>I work across SEO, Generative Engine Optimization (GEO), paid media and WordPress development. On search, I do keyword research, technical audits, on-page and local SEO.</p>
             <p>On paid, I run Amazon Sponsored Products and Meta Ads, and I focus less on vanity ROAS and more on whether the campaign actually <strong class="font-extrabold text-ink">clears its break-even</strong>.</p>
             <p>I have built and launched <strong class="font-extrabold text-ink">four live WordPress business sites</strong>: a D2C WooCommerce store, two B2B lead-generation sites and a manufacturer's product catalogue. I handled the SEO foundations on each myself.</p>
@@ -313,7 +319,7 @@
           <h2 class="section-title">Sites I've built, launched and <span class="text-brand">made findable.</span></h2>
         </div>
         <div id="project-grid" class="mt-12 grid gap-5 md:grid-cols-2 lg:gap-6"></div>
-        <noscript><p class="mt-8 rounded-2xl bg-white p-6 ring-1 ring-line">Projects: KKM Keychains, True Safety, Studio MiniMinds, Adorsh, KKM-Crafts and AutomotoService. Enable JavaScript to see the full case notes.</p></noscript>
+        <noscript><p class="mt-8 rounded-2xl bg-white p-6 ring-1 ring-line">Projects: Studio MiniMinds (studiominiminds.com), Ambur Leather (amburleather.com), KKM Keychains, True Safety, Adorsh, KKM-Crafts and AutomotoService. Enable JavaScript to see the full case notes.</p></noscript>
       </div>
     </section>
 
@@ -327,7 +333,7 @@
 
         <ol class="spine relative mt-14 space-y-8 pl-10 sm:pl-14">
           <li class="reveal relative">
-            <span class="absolute -left-10 top-8 size-6 rounded-full bg-brand ring-[6px] ring-white sm:-left-14" aria-hidden="true"></span>
+            <span class="dot absolute -left-10 top-8 size-6 rounded-full bg-brand ring-[6px] ring-white sm:-left-14" aria-hidden="true"></span>
             <article class="card card-hover bg-paper">
               <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <p class="rounded-full bg-brand px-3 py-1 text-xs font-bold text-white">Mar 2026 – Present</p>
@@ -347,7 +353,7 @@
           </li>
 
           <li class="reveal relative">
-            <span class="absolute -left-10 top-8 size-6 rounded-full bg-ember ring-[6px] ring-white sm:-left-14" aria-hidden="true"></span>
+            <span class="dot absolute -left-10 top-8 size-6 rounded-full bg-ember ring-[6px] ring-white sm:-left-14" aria-hidden="true"></span>
             <article class="card card-hover bg-paper">
               <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <p class="rounded-full bg-ember px-3 py-1 text-xs font-bold text-ink">Jun 2025 – Mar 2026</p>
@@ -364,7 +370,7 @@
           </li>
 
           <li class="reveal relative">
-            <span class="absolute -left-10 top-8 size-6 rounded-full bg-sun ring-[6px] ring-white sm:-left-14" aria-hidden="true"></span>
+            <span class="dot absolute -left-10 top-8 size-6 rounded-full bg-sun ring-[6px] ring-white sm:-left-14" aria-hidden="true"></span>
             <article class="card card-hover bg-paper">
               <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <p class="rounded-full bg-sun px-3 py-1 text-xs font-bold text-ink">Jan 2025 – Jun 2025</p>
@@ -404,8 +410,8 @@
     </section>
 
     <!-- ===================== CONTACT ===================== -->
-    <section id="contact" class="px-3 pb-6 sm:px-6">
-      <div class="relative mx-auto max-w-6xl overflow-hidden rounded-[2.25rem] bg-brand px-5 py-14 text-white sm:rounded-[3rem] sm:px-12 sm:py-20">
+    <section id="contact" class="pb-6">
+      <div class="relative mx-auto w-[90%] max-w-[112rem] overflow-hidden rounded-[2.25rem] bg-brand px-5 py-14 text-white sm:rounded-[3rem] sm:px-12 sm:py-20">
         <div class="pointer-events-none absolute -right-16 -top-16 size-36 rounded-full bg-sun sm:-right-20 sm:-top-20 sm:size-72" aria-hidden="true"></div>
         <div class="pointer-events-none absolute -bottom-24 -left-20 size-44 rounded-full bg-ember sm:-bottom-28 sm:-left-16 sm:size-72" aria-hidden="true"></div>
 
@@ -473,6 +479,24 @@
       © <span id="year">2026</span> Ibrahim K · Chennai, India · Built with HTML, Tailwind CSS and a little JavaScript.
     </div>
   </footer>
+
+  <!-- Live preview dialog (filled by main.js) -->
+  <dialog id="preview-dialog" class="preview" aria-labelledby="preview-title">
+    <div class="flex items-center gap-3 border-b border-line bg-paper px-4 py-3 sm:px-6">
+      <div class="hidden gap-1.5 sm:flex" aria-hidden="true"><span class="size-3 rounded-full bg-ember"></span><span class="size-3 rounded-full bg-sun"></span><span class="size-3 rounded-full bg-brand"></span></div>
+      <h2 id="preview-title" class="min-w-0 flex-1 truncate font-display text-base font-extrabold sm:text-lg">Live preview</h2>
+      <a id="preview-open" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-4 !py-2">Open in new tab
+        <svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+      <button id="preview-close" type="button" class="grid size-10 place-items-center rounded-full ring-1 ring-line hover:ring-ink" aria-label="Close preview">
+        <svg class="size-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
+    </div>
+    <div class="relative flex-1 bg-white">
+      <p class="absolute inset-0 grid place-items-center px-6 text-center text-sm font-semibold text-muted">Loading live site… if it stays blank, the site doesn't allow embedding. Use “Open in new tab”.</p>
+      <iframe id="preview-frame" title="Live website preview" class="relative h-full w-full bg-transparent" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+    </div>
+  </dialog>
 
   <script src="assets/js/projects.js" defer></script>
   <script src="assets/js/main.js" defer></script>
