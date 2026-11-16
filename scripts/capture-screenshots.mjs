@@ -24,7 +24,8 @@ const SITES = [
   { slug: "true-safety", url: "https://truesafety.in" },
   { slug: "adorsh", url: "https://adorsh.com" },
   { slug: "kkm-crafts", url: "https://kkm-crafts.netlify.app/" },
-  { slug: "automotoservice", url: "https://automotoservice.netlify.app/" },
+  // manual: its image was supplied by hand (the live URL opens on a login page), so it is skipped unless named
+  { slug: "automotoservice", url: "https://automotoservice.netlify.app/", manual: true },
 ];
 
 // Buttons that commonly dismiss cookie / consent / newsletter popups
@@ -45,7 +46,7 @@ async function dismissPopups(page) {
 }
 
 const only = process.argv.slice(2);
-const targets = only.length ? SITES.filter((s) => only.includes(s.slug)) : SITES;
+const targets = only.length ? SITES.filter((s) => only.includes(s.slug)) : SITES.filter((s) => !s.manual);
 await mkdir(OUT_DIR, { recursive: true });
 
 const browser = await chromium.launch({ channel: process.env.CHROME_CHANNEL || undefined });
