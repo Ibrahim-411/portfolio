@@ -9,11 +9,19 @@ Single-page portfolio built with semantic HTML, Tailwind CSS v4 and a little van
 | What | Where |
 | --- | --- |
 | Page copy, skills, experience, education, contact | `index.html` |
-| Projects (problem / what I did / tools / result) | `assets/js/projects.js` — a plain array, edit and refresh |
-| Colours, fonts, animations | `src/input.css` (`@theme` block) |
+| Projects (7 cards: browser-frame preview, short about, tool chips, buttons) | `index.html`, section `#projects` |
+| Colours, fonts, animations, preview-frame styles | `src/input.css` |
+| Font (Inter variable, self-hosted) | `assets/fonts/` |
 | Photo | `assets/img/ibrahim-cutout.webp` |
 
-Replace each `[add result]` in `assets/js/projects.js` with real numbers.
+### How the project previews work
+
+Each project card shows a browser-frame mockup (`.bframe`):
+
+- **Live sites** use an `<iframe data-src="...">` rendered at 1280px wide and scaled down to fit (`initFrames()` in `assets/js/main.js`). The `src` is only set when the card is within 300px of the viewport, so iframes never slow the first load. Visitors can scroll inside, and switch Desktop / Mobile width.
+- **Sites that block framing** (`X-Frame-Options` / CSP `frame-ancestors`) use `data-mode="shot"` and an auto-scrolling full-page screenshot from `assets/img/projects/`. To switch a card to live, change its `data-mode` to `live` and replace the `<img>` with the `<iframe>` markup from another card.
+
+Currently blocked: studiominiminds.com and kkmkeychains.in (both send `X-Frame-Options: SAMEORIGIN`).
 
 ## Rebuild the CSS
 
@@ -28,3 +36,7 @@ npm run dev     # watch mode while editing
 ## Deploy
 
 GitHub Pages serves the `main` branch from the repository root. Push to `main` and the site updates.
+
+## Licences
+
+Inter is licensed under the SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).

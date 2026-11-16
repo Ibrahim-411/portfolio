@@ -46,7 +46,6 @@
 
   --animate-float: float 7s ease-in-out infinite;
   --animate-marquee: marquee 38s linear infinite;
-  --animate-pulse-ring: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
   --animate-drift: drift 14s ease-in-out infinite;
   --animate-spin-slow: spin-slow 18s linear infinite;
@@ -72,10 +71,6 @@
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
-  }
-  @keyframes pulse-ring {
-    0% { box-shadow: 0 0 0 0 rgb(22 163 74 / 0.45); }
-    80%, 100% { box-shadow: 0 0 0 9px rgb(22 163 74 / 0); }
   }
 }
 
@@ -150,16 +145,14 @@
 .js .reveal {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.7s ease-out;
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
   transition-delay: var(--d, 0ms);
 }
 .js .reveal.is-in { opacity: 1; transform: none; }
 
 /* ---------- Modern motion ---------- */
 
-/* Reveal variants (direction + soft blur-in) */
-.js .reveal { filter: blur(5px); }
-.js .reveal.is-in { filter: none; }
+/* Reveal variants (direction) */
 .js .reveal[data-reveal="left"]  { transform: translateX(-36px); }
 .js .reveal[data-reveal="right"] { transform: translateX(36px); }
 .js .reveal[data-reveal="zoom"]  { transform: scale(0.92) translateY(18px); }
@@ -246,6 +239,21 @@
 .dot { transition: scale 0.6s 0.2s cubic-bezier(0.3, 1.7, 0.5, 1); }
 .js .reveal:not(.is-in) .dot { scale: 0; }
 
+/* "Open to work" dot: ring pulses with transform + opacity only (stays off the main thread) */
+.pulse-dot { position: relative; }
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgb(22 163 74 / 0.55);
+  animation: pulse-dot 2.2s ease-out infinite;
+}
+@keyframes pulse-dot {
+  0% { transform: scale(1); opacity: 0.6; }
+  80%, 100% { transform: scale(3.2); opacity: 0; }
+}
+
 /* Marquee pauses on hover */
 .marquee-track:hover { animation-play-state: paused; }
 
@@ -320,11 +328,9 @@
 .bframe-view {
   position: relative; overflow: hidden;
   aspect-ratio: 1 / 1;
-  background: linear-gradient(110deg, #f4f3ee 30%, #fbfaf6 50%, #f4f3ee 70%) 0 0 / 200% 100%;
+  background: #f4f3ee;
 }
 @media (min-width: 640px) { .bframe-view { aspect-ratio: 16 / 10; } }
-.bframe[data-mode="live"]:not(.is-loaded) .bframe-view { animation: shimmer 1.6s linear infinite; }
-@keyframes shimmer { to { background-position: -200% 0; } }
 
 .bframe iframe {
   position: absolute; top: 0; left: 50%;
@@ -365,6 +371,9 @@
   transform: scaleY(var(--p, 1));
 }
 
+/* Below-the-fold sections are skipped by the renderer until they are near the viewport */
+.cv-auto { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+
 /* Mobile nav panel */
 [data-menu][hidden] { display: none; }
 
@@ -383,7 +392,6 @@
   .parallax, .tilt-card { translate: none; transform: none; }
   .bframe[data-mode="shot"] .shot { animation: none; }
   .bframe[data-mode="shot"] .bframe-view { overflow-y: auto; }
-  .bframe[data-mode="live"]:not(.is-loaded) .bframe-view { animation: none; }
   .marquee-track { animation: none !important; transform: none; width: 100% !important; justify-content: center; }
   .marquee-track > div { flex-wrap: wrap; justify-content: center; row-gap: 0.25rem; }
   .marquee-track > div:nth-child(2) { display: none; }
