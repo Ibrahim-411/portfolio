@@ -4,68 +4,65 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-  /* ---------- Projects (rendered from window.PROJECTS) ---------- */
-  // Class names are written out in full so Tailwind can see them.
-  const ACCENTS = {
-    blue:   { tile: "bg-brand text-white",       glow: "bg-brand-soft",  label: "text-brand" },
-    orange: { tile: "bg-ember text-ink",         glow: "bg-ember-soft",  label: "text-ember-ink" },
-    yellow: { tile: "bg-sun text-ink",           glow: "bg-sun-soft",    label: "text-ink" },
-  };
-  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const isPlaceholder = (s) => /^\[.*\]$/.test(String(s).trim());
+  /* ---------- Project previews: scaled live iframes / auto-scrolling screenshots ---------- */
+  const DESKTOP_W = 1280, MOBILE_W = 390, MOBILE_H = 844;
 
-  function renderProjects() {
-    const grid = $("#project-grid");
-    const data = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
-    if (!grid || !data.length) return;
-    grid.innerHTML = data.map((p, i) => {
-      const a = ACCENTS[p.accent] || ACCENTS.blue;
-      const result = isPlaceholder(p.result)
-        ? `<span class="inline-block rounded-lg bg-sun px-2.5 py-1 text-sm font-bold text-ink">${esc(p.result)}</span>`
-        : `<span class="font-bold text-ink">${esc(p.result)}</span>`;
-      const links = (p.links || []).map((l) =>
-        `<a href="${esc(l.href)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline">${esc(l.label)}<span aria-hidden="true">↗</span></a>`
-      ).join("");
-      const host = p.url ? new URL(p.url).hostname.replace(/^www\./, "") : "";
-      const preview = p.image && p.url ? `
-        <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="shot-link group/shot -mx-2 -mt-2 mb-6 block rounded-2xl bg-paper p-2 ring-1 ring-line" aria-label="Open ${esc(p.name)} live site (${esc(host)}) in a new tab">
-          <div class="overflow-hidden rounded-xl bg-white ring-1 ring-line">
-            <div class="flex items-center gap-2 border-b border-line bg-paper px-3 py-2" aria-hidden="true">
-              <span class="size-2.5 rounded-full bg-ember"></span><span class="size-2.5 rounded-full bg-sun"></span><span class="size-2.5 rounded-full bg-brand"></span>
-              <span class="ml-2 min-w-0 flex-1 truncate rounded-md bg-white px-3 py-1 text-xs font-semibold text-muted ring-1 ring-line">${esc(host)}</span>
-            </div>
-            <div class="shot-frame relative overflow-hidden">
-              <img src="${esc(p.image)}" alt="Screenshot of the ${esc(p.name)} website homepage" loading="lazy" decoding="async" width="900" class="shot block h-auto w-full">
-              <span class="absolute bottom-3 right-3 rounded-full bg-ink/85 px-3 py-1 text-xs font-bold text-white opacity-0 transition group-hover/shot:opacity-100">Scrolling preview ↓</span>
-            </div>
-          </div>
-        </a>` : "";
-      const actions = p.url ? `
-        <div class="mt-auto flex flex-wrap gap-3 pt-6">
-          <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-5 !py-2.5">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          ${p.embed ? `<button type="button" data-preview="${esc(p.url)}" data-title="${esc(p.name)}" class="btn btn-ghost !px-5 !py-2.5">Live preview</button>` : ""}
-        </div>` : "";
-      return `
-      <article class="reveal card card-hover flex flex-col" style="--d:${(i % 2) * 90}ms">
-        ${preview}
-        <div class="flex items-start justify-between gap-4">
-          <div class="grid size-14 shrink-0 place-items-center rounded-2xl font-display text-xl font-extrabold ${a.tile}" aria-hidden="true">${String(i + 1).padStart(2, "0")}</div>
-          <div class="flex flex-wrap justify-end gap-2">
-            ${p.badge ? `<span class="rounded-full bg-ink px-3 py-1 text-xs font-bold text-white">✦ ${esc(p.badge)}</span>` : ""}
-            <span class="rounded-full ${a.glow} px-3 py-1 text-xs font-bold ${a.label}">${esc(p.type)}</span>
-          </div>
-        </div>
-        <h3 class="mt-6 text-2xl font-extrabold sm:text-3xl">${esc(p.name)}</h3>
-        <dl class="mt-5 space-y-4 text-[0.95rem] leading-relaxed">
-          <div><dt class="text-xs font-bold uppercase tracking-[0.14em] text-muted">Problem</dt><dd class="mt-1 text-slate-700">${esc(p.problem)}</dd></div>
-          <div><dt class="text-xs font-bold uppercase tracking-[0.14em] text-muted">What I did</dt><dd class="mt-1 text-slate-700">${esc(p.did)}</dd></div>
-          <div><dt class="text-xs font-bold uppercase tracking-[0.14em] text-muted">Result</dt><dd class="mt-1">${result}</dd></div>
-        </dl>
-        <div class="mt-6 flex flex-wrap gap-2">${(p.tools || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
-        ${actions}
-        ${links ? `<div class="mt-5 border-t border-line pt-4">${links}</div>` : ""}
-      </article>`;
-    }).join("");
+  function initFrames() {
+    const frames = $$("[data-frame]");
+    if (!frames.length) return;
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+
+    frames.forEach((frame) => {
+      const view = $("[data-view]", frame);
+      const iframe = $("iframe", frame);
+      let width = "desktop";
+
+      // Render the site at a real desktop (or phone) width, then scale it to fit the frame.
+      const layout = () => {
+        const w = view.clientWidth, h = view.clientHeight;
+        if (!w || !h) return;
+        const mobile = width === "mobile";
+        const iw = mobile ? MOBILE_W : DESKTOP_W;
+        const s = mobile ? Math.min(h / MOBILE_H, 1) : w / DESKTOP_W;
+        frame.style.setProperty("--fh", h + "px");
+        frame.style.setProperty("--iw", iw + "px");
+        frame.style.setProperty("--s", s.toFixed(4));
+        frame.style.setProperty("--ih", Math.ceil(h / s) + "px");
+      };
+      if ("ResizeObserver" in window) new ResizeObserver(layout).observe(view);
+      else window.addEventListener("resize", layout);
+      layout();
+
+      // Desktop / Mobile toggle
+      const buttons = $$("[data-width]", frame);
+      buttons.forEach((btn) => btn.addEventListener("click", () => {
+        width = btn.dataset.width;
+        frame.dataset.width = width;
+        buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+        layout();
+      }));
+
+      // Touch: don't let the preview swallow page scrolling until it is tapped
+      if (iframe && coarse) {
+        frame.classList.add("is-locked");
+        $("[data-unlock]", frame).addEventListener("click", () => frame.classList.remove("is-locked"));
+      }
+
+      // Load the iframe only when the card is near the viewport; run the screenshot scroll only while visible
+      const start = () => {
+        if (iframe && !iframe.getAttribute("src")) {
+          iframe.addEventListener("load", () => frame.classList.add("is-loaded"), { once: true });
+          iframe.src = iframe.dataset.src;
+        }
+      };
+      if (!("IntersectionObserver" in window)) { start(); frame.classList.add("is-active"); return; }
+      new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          frame.classList.toggle("is-active", en.isIntersecting);
+          if (en.isIntersecting) start();
+        });
+      }, { rootMargin: "300px 0px" }).observe(frame);
+    });
   }
 
   /* ---------- Scroll reveal ---------- */
@@ -152,26 +149,6 @@
     });
   }
 
-  /* ---------- Live preview dialog ---------- */
-  function initPreview() {
-    const dlg = $("#preview-dialog");
-    if (!dlg || typeof dlg.showModal !== "function") return;
-    const frame = $("#preview-frame"), title = $("#preview-title"), open = $("#preview-open");
-    const close = () => { if (dlg.open) dlg.close(); };
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-preview]");
-      if (!btn) return;
-      const url = btn.dataset.preview;
-      title.textContent = `${btn.dataset.title} · live preview`;
-      open.href = url;
-      frame.src = url;
-      dlg.showModal();
-    });
-    $("#preview-close").addEventListener("click", close);
-    dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); }); // click on backdrop
-    dlg.addEventListener("close", () => { frame.src = "about:blank"; });
-  }
-
   /* ---------- Motion: scroll progress, hero tilt, card spotlight, timeline draw ---------- */
   function initMotion() {
     const bar = $("#progress");
@@ -219,10 +196,9 @@
   }
 
   /* ---------- Boot ---------- */
-  renderProjects();
   initNav();
   initForm();
-  initPreview();
+  initFrames();
   initMotion();
   const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
   initReveal();
