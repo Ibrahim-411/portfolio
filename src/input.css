@@ -127,6 +127,7 @@
   .btn-primary { @apply bg-brand text-white shadow-[0_10px_24px_-10px_rgb(37_99_235/0.8)] hover:bg-brand-deep hover:-translate-y-0.5; }
   .btn-ink { @apply bg-ink text-white hover:bg-brand hover:-translate-y-0.5; }
   .btn-ghost { @apply bg-white text-ink ring-1 ring-line hover:ring-ink hover:-translate-y-0.5; }
+  .btn-whatsapp { @apply bg-[#25D366] text-ink shadow-[0_10px_24px_-10px_rgb(37_211_102/0.8)] hover:bg-[#1fbd5a] hover:-translate-y-0.5; }
 
   .chip {
     @apply inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold transition duration-200 hover:-translate-y-0.5;
