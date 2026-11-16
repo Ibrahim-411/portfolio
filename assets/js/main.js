@@ -4,67 +4,6 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-  /* ---------- Project previews: scaled live iframes / auto-scrolling screenshots ---------- */
-  const DESKTOP_W = 1280, MOBILE_W = 390, MOBILE_H = 844;
-
-  function initFrames() {
-    const frames = $$("[data-frame]");
-    if (!frames.length) return;
-    const coarse = window.matchMedia("(pointer: coarse)").matches;
-
-    frames.forEach((frame) => {
-      const view = $("[data-view]", frame);
-      const iframe = $("iframe", frame);
-      let width = "desktop";
-
-      // Render the site at a real desktop (or phone) width, then scale it to fit the frame.
-      const layout = () => {
-        const w = view.clientWidth, h = view.clientHeight;
-        if (!w || !h) return;
-        const mobile = width === "mobile";
-        const iw = mobile ? MOBILE_W : DESKTOP_W;
-        const s = mobile ? Math.min(h / MOBILE_H, 1) : w / DESKTOP_W;
-        frame.style.setProperty("--fh", h + "px");
-        frame.style.setProperty("--iw", iw + "px");
-        frame.style.setProperty("--s", s.toFixed(4));
-        frame.style.setProperty("--ih", Math.ceil(h / s) + "px");
-      };
-      if ("ResizeObserver" in window) new ResizeObserver(layout).observe(view);
-      else window.addEventListener("resize", layout);
-      layout();
-
-      // Desktop / Mobile toggle
-      const buttons = $$("[data-width]", frame);
-      buttons.forEach((btn) => btn.addEventListener("click", () => {
-        width = btn.dataset.width;
-        frame.dataset.width = width;
-        buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-        layout();
-      }));
-
-      // Touch: don't let the preview swallow page scrolling until it is tapped
-      if (iframe && coarse) {
-        frame.classList.add("is-locked");
-        $("[data-unlock]", frame).addEventListener("click", () => frame.classList.remove("is-locked"));
-      }
-
-      // Load the iframe only when the card is near the viewport; run the screenshot scroll only while visible
-      const start = () => {
-        if (iframe && !iframe.getAttribute("src")) {
-          iframe.addEventListener("load", () => frame.classList.add("is-loaded"), { once: true });
-          iframe.src = iframe.dataset.src;
-        }
-      };
-      if (!("IntersectionObserver" in window)) { start(); frame.classList.add("is-active"); return; }
-      new IntersectionObserver((entries) => {
-        entries.forEach((en) => {
-          frame.classList.toggle("is-active", en.isIntersecting);
-          if (en.isIntersecting) start();
-        });
-      }, { rootMargin: "300px 0px" }).observe(frame);
-    });
-  }
-
   /* ---------- Scroll reveal ---------- */
   function initReveal() {
     const els = $$(".reveal");
@@ -198,7 +137,6 @@
   /* ---------- Boot ---------- */
   initNav();
   initForm();
-  initFrames();
   initMotion();
   const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
   initReveal();

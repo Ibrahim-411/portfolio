@@ -327,220 +327,179 @@
         <div class="reveal max-w-3xl">
           <span class="eyebrow">Selected projects</span>
           <h2 class="section-title">Sites I've built, launched and <span class="text-brand">made findable.</span></h2>
-          <p class="mt-5 max-w-2xl text-lg text-muted">Every preview below is the real site. Scroll inside a frame, or switch it to mobile width.</p>
+          <p class="mt-4 max-w-2xl text-lg text-muted">Seven projects. Click any screenshot to open the live site.</p>
         </div>
-        <div id="project-grid" class="mt-12 grid gap-6 lg:gap-8">
-        <article class="project card reveal" id="project-studio-miniminds" aria-labelledby="studio-miniminds-title">
-          <div class="project-media">
-            <div class="bframe" data-frame data-mode="shot">
-              <div class="bframe-bar">
-                <span class="bframe-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="bframe-url" title="https://studiominiminds.com"><span class="sr-only">Address: </span>studiominiminds.com</span>
-            <span class="bframe-note">Auto-scrolling screenshot</span>
+        <div id="project-grid" class="project-grid mt-10">
+          <article class="project project-featured card reveal" id="project-studio-miniminds" aria-labelledby="studio-miniminds-title">
+            <a class="project-shot" href="https://studiominiminds.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <span class="project-bar" aria-hidden="true">
+                <span class="project-dots"><i></i><i></i><i></i></span>
+                <span class="project-url">studiominiminds.com</span>
+              </span>
+              <img src="assets/img/projects/studio-miniminds.webp" width="1200" height="750" alt="Screenshot of the Studio MiniMinds website homepage" decoding="async">
+            </a>
+            <div class="project-body">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="grid size-8 place-items-center rounded-lg text-xs font-extrabold tabular-nums bg-sun text-ink" aria-hidden="true">01</span>
+                <span class="rounded-full bg-sun-soft text-ink px-2.5 py-1 text-xs font-bold">Kids&#x27; puzzle &amp; activity books brand site</span>
+                <span class="rounded-full bg-ink px-2.5 py-1 text-xs font-bold text-white">✦ Built with Claude Code</span>
               </div>
-          <div class="bframe-view" data-view role="region" aria-label="Scrolling screenshot of the Studio MiniMinds homepage" tabindex="0">
-            <img class="shot" src="assets/img/projects/studio-miniminds.webp" width="1100" height="4125" alt="Full-page screenshot of the Studio MiniMinds website, kids&#x27; puzzle &amp; activity books brand site" loading="lazy" decoding="async">
-          </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="grid size-10 place-items-center rounded-xl text-sm font-extrabold tabular-nums bg-sun text-ink" aria-hidden="true">01</span>
-              <span class="rounded-full bg-sun-soft text-ink px-3 py-1 text-xs font-bold">Kids&#x27; puzzle &amp; activity books brand site</span>
-              <span class="rounded-full bg-ink px-3 py-1 text-xs font-bold text-white">✦ Built with Claude Code</span>
-            </div>
-            <h3 id="studio-miniminds-title" class="mt-5 text-3xl font-extrabold sm:text-4xl">Studio MiniMinds</h3>
-            <p class="mt-3 max-w-prose text-base leading-relaxed text-slate-700 sm:text-lg">A React site for a kids&#x27; puzzle book brand, with a filterable library of 35 books and SEO tags on every book page.</p>
-            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tools used"><li class="tag">Claude Code</li><li class="tag">React</li><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li><li class="tag">GA4</li></ul>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a href="https://studiominiminds.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for Studio MiniMinds (opens in new tab)</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="project card reveal" id="project-ambur-leather" aria-labelledby="ambur-leather-title">
-          <div class="project-media">
-            <div class="bframe" data-frame data-mode="live">
-              <div class="bframe-bar">
-                <span class="bframe-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="bframe-url" title="https://amburleather.com"><span class="sr-only">Address: </span>amburleather.com</span>
-            <div class="bframe-toggle" role="group" aria-label="Preview width for Ambur Leather">
-              <button type="button" data-width="desktop" aria-pressed="true">Desktop</button>
-              <button type="button" data-width="mobile" aria-pressed="false">Mobile</button>
-            </div>
+              <h3 id="studio-miniminds-title" class="mt-2 text-2xl font-extrabold">Studio MiniMinds</h3>
+              <p class="mt-1.5 text-[0.9rem] leading-snug text-slate-700">A React site for a kids&#x27; puzzle book brand, with a filterable library of 35 books and SEO tags on every book page.</p>
+              <div class="project-actions mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-3 pt-4">
+                <div class="flex flex-wrap gap-2.5">
+                  <a href="https://studiominiminds.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-5 !py-2.5">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for Studio MiniMinds (opens in new tab)</span></a>
+                </div>
+                <ul class="flex flex-wrap gap-1.5" aria-label="Tools used"><li class="tag">Claude Code</li><li class="tag">React</li><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li><li class="tag">GA4</li></ul>
               </div>
-          <div class="bframe-view" data-view>
-            <iframe data-src="https://amburleather.com" title="Live preview of Ambur Leather (amburleather.com)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" width="1280" height="800"></iframe>
-            <button type="button" class="bframe-lock" data-unlock><span>Tap to scroll the preview</span></button>
-          </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="grid size-10 place-items-center rounded-xl text-sm font-extrabold tabular-nums bg-ember text-ink" aria-hidden="true">02</span>
-              <span class="rounded-full bg-ember-soft text-ember-ink px-3 py-1 text-xs font-bold">B2B manufacturer website</span>
-              
-            </div>
-            <h3 id="ambur-leather-title" class="mt-5 text-3xl font-extrabold sm:text-4xl">Ambur Leather</h3>
-            <p class="mt-3 max-w-prose text-base leading-relaxed text-slate-700 sm:text-lg">A WordPress site for an Ambur leather bag manufacturer, with product-category pages, bulk-quote and WhatsApp enquiry paths, and on-page SEO.</p>
-            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tools used"><li class="tag">WordPress</li><li class="tag">On-page SEO</li><li class="tag">Lead-gen CTAs</li></ul>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a href="https://amburleather.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for Ambur Leather (opens in new tab)</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="project card reveal" id="project-kkm-keychains" aria-labelledby="kkm-keychains-title">
-          <div class="project-media">
-            <div class="bframe" data-frame data-mode="shot">
-              <div class="bframe-bar">
-                <span class="bframe-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="bframe-url" title="https://kkmkeychains.in"><span class="sr-only">Address: </span>kkmkeychains.in</span>
-            <span class="bframe-note">Auto-scrolling screenshot</span>
+          </article>
+          <article class="project card reveal" id="project-ambur-leather" aria-labelledby="ambur-leather-title">
+            <a class="project-shot" href="https://amburleather.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <span class="project-bar" aria-hidden="true">
+                <span class="project-dots"><i></i><i></i><i></i></span>
+                <span class="project-url">amburleather.com</span>
+              </span>
+              <img src="assets/img/projects/ambur-leather.webp" width="1200" height="750" alt="Screenshot of the Ambur Leather website homepage" loading="lazy" decoding="async">
+            </a>
+            <div class="project-body">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="grid size-8 place-items-center rounded-lg text-xs font-extrabold tabular-nums bg-ember text-ink" aria-hidden="true">02</span>
+                <span class="rounded-full bg-ember-soft text-ember-ink px-2.5 py-1 text-xs font-bold">B2B manufacturer website</span>
+                
               </div>
-          <div class="bframe-view" data-view role="region" aria-label="Scrolling screenshot of the KKM Keychains homepage" tabindex="0">
-            <img class="shot" src="assets/img/projects/kkm-keychains.webp" width="1100" height="4125" alt="Full-page screenshot of the KKM Keychains website, d2c woocommerce store" loading="lazy" decoding="async">
-          </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="grid size-10 place-items-center rounded-xl text-sm font-extrabold tabular-nums bg-ember text-ink" aria-hidden="true">03</span>
-              <span class="rounded-full bg-ember-soft text-ember-ink px-3 py-1 text-xs font-bold">D2C WooCommerce store</span>
-              
-            </div>
-            <h3 id="kkm-keychains-title" class="mt-5 text-3xl font-extrabold sm:text-4xl">KKM Keychains</h3>
-            <p class="mt-3 max-w-prose text-base leading-relaxed text-slate-700 sm:text-lg">A WooCommerce store on WordPress with catalogue and checkout, plus keyword research, on-page SEO and a Search Console and GA4 setup.</p>
-            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tools used"><li class="tag">WordPress</li><li class="tag">WooCommerce</li><li class="tag">Search Console</li><li class="tag">GA4</li></ul>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a href="https://kkmkeychains.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for KKM Keychains (opens in new tab)</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="project card reveal" id="project-true-safety" aria-labelledby="true-safety-title">
-          <div class="project-media">
-            <div class="bframe" data-frame data-mode="live">
-              <div class="bframe-bar">
-                <span class="bframe-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="bframe-url" title="https://truesafety.in"><span class="sr-only">Address: </span>truesafety.in</span>
-            <div class="bframe-toggle" role="group" aria-label="Preview width for True Safety">
-              <button type="button" data-width="desktop" aria-pressed="true">Desktop</button>
-              <button type="button" data-width="mobile" aria-pressed="false">Mobile</button>
-            </div>
+              <h3 id="ambur-leather-title" class="mt-2 text-2xl font-extrabold">Ambur Leather</h3>
+              <p class="mt-1.5 text-[0.9rem] leading-snug text-slate-700">A WordPress site for an Ambur leather bag manufacturer, with product-category pages, bulk-quote and WhatsApp enquiry paths, and on-page SEO.</p>
+              <div class="project-actions mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-3 pt-4">
+                <div class="flex flex-wrap gap-2.5">
+                  <a href="https://amburleather.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-5 !py-2.5">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for Ambur Leather (opens in new tab)</span></a>
+                </div>
+                <ul class="flex flex-wrap gap-1.5" aria-label="Tools used"><li class="tag">WordPress</li><li class="tag">On-page SEO</li><li class="tag">Lead-gen CTAs</li></ul>
               </div>
-          <div class="bframe-view" data-view>
-            <iframe data-src="https://truesafety.in" title="Live preview of True Safety (truesafety.in)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" width="1280" height="800"></iframe>
-            <button type="button" class="bframe-lock" data-unlock><span>Tap to scroll the preview</span></button>
-          </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="grid size-10 place-items-center rounded-xl text-sm font-extrabold tabular-nums bg-brand text-white" aria-hidden="true">04</span>
-              <span class="rounded-full bg-brand-soft text-brand-deep px-3 py-1 text-xs font-bold">B2B lead-generation site</span>
-              
-            </div>
-            <h3 id="true-safety-title" class="mt-5 text-3xl font-extrabold sm:text-4xl">True Safety</h3>
-            <p class="mt-3 max-w-prose text-base leading-relaxed text-slate-700 sm:text-lg">A WordPress site with clear service pages and enquiry paths, backed by keyword mapping, on-page and technical SEO, and tracking.</p>
-            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tools used"><li class="tag">WordPress</li><li class="tag">On-page SEO</li><li class="tag">Search Console</li><li class="tag">GA4</li></ul>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a href="https://truesafety.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for True Safety (opens in new tab)</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="project card reveal" id="project-adorsh" aria-labelledby="adorsh-title">
-          <div class="project-media">
-            <div class="bframe" data-frame data-mode="live">
-              <div class="bframe-bar">
-                <span class="bframe-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="bframe-url" title="https://adorsh.com"><span class="sr-only">Address: </span>adorsh.com</span>
-            <div class="bframe-toggle" role="group" aria-label="Preview width for Adorsh">
-              <button type="button" data-width="desktop" aria-pressed="true">Desktop</button>
-              <button type="button" data-width="mobile" aria-pressed="false">Mobile</button>
-            </div>
+          </article>
+          <article class="project card reveal" id="project-kkm-keychains" aria-labelledby="kkm-keychains-title">
+            <a class="project-shot" href="https://kkmkeychains.in" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <span class="project-bar" aria-hidden="true">
+                <span class="project-dots"><i></i><i></i><i></i></span>
+                <span class="project-url">kkmkeychains.in</span>
+              </span>
+              <img src="assets/img/projects/kkm-keychains.webp" width="1200" height="750" alt="Screenshot of the KKM Keychains website homepage" loading="lazy" decoding="async">
+            </a>
+            <div class="project-body">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="grid size-8 place-items-center rounded-lg text-xs font-extrabold tabular-nums bg-ember text-ink" aria-hidden="true">03</span>
+                <span class="rounded-full bg-ember-soft text-ember-ink px-2.5 py-1 text-xs font-bold">D2C WooCommerce store</span>
+                
               </div>
-          <div class="bframe-view" data-view>
-            <iframe data-src="https://adorsh.com" title="Live preview of Adorsh (adorsh.com)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" width="1280" height="800"></iframe>
-            <button type="button" class="bframe-lock" data-unlock><span>Tap to scroll the preview</span></button>
-          </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="grid size-10 place-items-center rounded-xl text-sm font-extrabold tabular-nums bg-ember text-ink" aria-hidden="true">05</span>
-              <span class="rounded-full bg-ember-soft text-ember-ink px-3 py-1 text-xs font-bold">Manufacturer&#x27;s product catalogue</span>
-              
-            </div>
-            <h3 id="adorsh-title" class="mt-5 text-3xl font-extrabold sm:text-4xl">Adorsh</h3>
-            <p class="mt-3 max-w-prose text-base leading-relaxed text-slate-700 sm:text-lg">A responsive product catalogue for an Ambur leather manufacturer, built with React and WordPress, with SEO and Meta Ads.</p>
-            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tools used"><li class="tag">React</li><li class="tag">WordPress</li><li class="tag">SEO</li><li class="tag">Meta Ads</li></ul>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a href="https://adorsh.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for Adorsh (opens in new tab)</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="project card reveal" id="project-kkm-crafts" aria-labelledby="kkm-crafts-title">
-          <div class="project-media">
-            <div class="bframe" data-frame data-mode="live">
-              <div class="bframe-bar">
-                <span class="bframe-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="bframe-url" title="https://kkm-crafts.netlify.app/"><span class="sr-only">Address: </span>kkm-crafts.netlify.app</span>
-            <div class="bframe-toggle" role="group" aria-label="Preview width for KKM-Crafts">
-              <button type="button" data-width="desktop" aria-pressed="true">Desktop</button>
-              <button type="button" data-width="mobile" aria-pressed="false">Mobile</button>
-            </div>
+              <h3 id="kkm-keychains-title" class="mt-2 text-2xl font-extrabold">KKM Keychains</h3>
+              <p class="mt-1.5 text-[0.9rem] leading-snug text-slate-700">A WooCommerce store on WordPress with catalogue and checkout, plus keyword research, on-page SEO and a Search Console and GA4 setup.</p>
+              <div class="project-actions mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-3 pt-4">
+                <div class="flex flex-wrap gap-2.5">
+                  <a href="https://kkmkeychains.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-5 !py-2.5">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for KKM Keychains (opens in new tab)</span></a>
+                </div>
+                <ul class="flex flex-wrap gap-1.5" aria-label="Tools used"><li class="tag">WordPress</li><li class="tag">WooCommerce</li><li class="tag">Search Console</li><li class="tag">GA4</li></ul>
               </div>
-          <div class="bframe-view" data-view>
-            <iframe data-src="https://kkm-crafts.netlify.app/" title="Live preview of KKM-Crafts (kkm-crafts.netlify.app)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" width="1280" height="800"></iframe>
-            <button type="button" class="bframe-lock" data-unlock><span>Tap to scroll the preview</span></button>
-          </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="grid size-10 place-items-center rounded-xl text-sm font-extrabold tabular-nums bg-brand text-white" aria-hidden="true">06</span>
-              <span class="rounded-full bg-brand-soft text-brand-deep px-3 py-1 text-xs font-bold">Internship build · AspiraSys</span>
-              
-            </div>
-            <h3 id="kkm-crafts-title" class="mt-5 text-3xl font-extrabold sm:text-4xl">KKM-Crafts</h3>
-            <p class="mt-3 max-w-prose text-base leading-relaxed text-slate-700 sm:text-lg">A responsive crafts-business website, designed and built from scratch during my internship at AspiraSys.</p>
-            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tools used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">Bootstrap</li><li class="tag">JavaScript</li></ul>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a href="https://kkm-crafts.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for KKM-Crafts (opens in new tab)</span></a>
-          <a href="https://github.com/Ibrahim-411/kkm-crafts" target="_blank" rel="noopener noreferrer" class="btn btn-ghost !px-5 !py-2.5">Code on GitHub<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for KKM-Crafts (opens in new tab)</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="project card reveal" id="project-automotoservice" aria-labelledby="automotoservice-title">
-          <div class="project-media">
-            <div class="bframe" data-frame data-mode="live">
-              <div class="bframe-bar">
-                <span class="bframe-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="bframe-url" title="https://automotoservice.netlify.app/"><span class="sr-only">Address: </span>automotoservice.netlify.app</span>
-            <div class="bframe-toggle" role="group" aria-label="Preview width for AutoMotoService">
-              <button type="button" data-width="desktop" aria-pressed="true">Desktop</button>
-              <button type="button" data-width="mobile" aria-pressed="false">Mobile</button>
-            </div>
+          </article>
+          <article class="project card reveal" id="project-true-safety" aria-labelledby="true-safety-title">
+            <a class="project-shot" href="https://truesafety.in" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <span class="project-bar" aria-hidden="true">
+                <span class="project-dots"><i></i><i></i><i></i></span>
+                <span class="project-url">truesafety.in</span>
+              </span>
+              <img src="assets/img/projects/true-safety.webp" width="1200" height="750" alt="Screenshot of the True Safety website homepage" loading="lazy" decoding="async">
+            </a>
+            <div class="project-body">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="grid size-8 place-items-center rounded-lg text-xs font-extrabold tabular-nums bg-brand text-white" aria-hidden="true">04</span>
+                <span class="rounded-full bg-brand-soft text-brand-deep px-2.5 py-1 text-xs font-bold">B2B lead-generation site</span>
+                
               </div>
-          <div class="bframe-view" data-view>
-            <iframe data-src="https://automotoservice.netlify.app/" title="Live preview of AutoMotoService (automotoservice.netlify.app)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" width="1280" height="800"></iframe>
-            <button type="button" class="bframe-lock" data-unlock><span>Tap to scroll the preview</span></button>
-          </div>
+              <h3 id="true-safety-title" class="mt-2 text-2xl font-extrabold">True Safety</h3>
+              <p class="mt-1.5 text-[0.9rem] leading-snug text-slate-700">A WordPress site with clear service pages and enquiry paths, backed by keyword mapping, on-page and technical SEO, and tracking.</p>
+              <div class="project-actions mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-3 pt-4">
+                <div class="flex flex-wrap gap-2.5">
+                  <a href="https://truesafety.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-5 !py-2.5">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for True Safety (opens in new tab)</span></a>
+                </div>
+                <ul class="flex flex-wrap gap-1.5" aria-label="Tools used"><li class="tag">WordPress</li><li class="tag">On-page SEO</li><li class="tag">Search Console</li><li class="tag">GA4</li></ul>
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="grid size-10 place-items-center rounded-xl text-sm font-extrabold tabular-nums bg-sun text-ink" aria-hidden="true">07</span>
-              <span class="rounded-full bg-sun-soft text-ink px-3 py-1 text-xs font-bold">Internship build · AspiraSys</span>
-              
+          </article>
+          <article class="project card reveal" id="project-adorsh" aria-labelledby="adorsh-title">
+            <a class="project-shot" href="https://adorsh.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <span class="project-bar" aria-hidden="true">
+                <span class="project-dots"><i></i><i></i><i></i></span>
+                <span class="project-url">adorsh.com</span>
+              </span>
+              <img src="assets/img/projects/adorsh.webp" width="1200" height="750" alt="Screenshot of the Adorsh website homepage" loading="lazy" decoding="async">
+            </a>
+            <div class="project-body">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="grid size-8 place-items-center rounded-lg text-xs font-extrabold tabular-nums bg-ember text-ink" aria-hidden="true">05</span>
+                <span class="rounded-full bg-ember-soft text-ember-ink px-2.5 py-1 text-xs font-bold">Manufacturer&#x27;s product catalogue</span>
+                
+              </div>
+              <h3 id="adorsh-title" class="mt-2 text-2xl font-extrabold">Adorsh</h3>
+              <p class="mt-1.5 text-[0.9rem] leading-snug text-slate-700">A responsive product catalogue for an Ambur leather manufacturer, built with React and WordPress, with SEO and Meta Ads.</p>
+              <div class="project-actions mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-3 pt-4">
+                <div class="flex flex-wrap gap-2.5">
+                  <a href="https://adorsh.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-5 !py-2.5">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for Adorsh (opens in new tab)</span></a>
+                </div>
+                <ul class="flex flex-wrap gap-1.5" aria-label="Tools used"><li class="tag">React</li><li class="tag">WordPress</li><li class="tag">SEO</li><li class="tag">Meta Ads</li></ul>
+              </div>
             </div>
-            <h3 id="automotoservice-title" class="mt-5 text-3xl font-extrabold sm:text-4xl">AutoMotoService</h3>
-            <p class="mt-3 max-w-prose text-base leading-relaxed text-slate-700 sm:text-lg">A responsive website that explains an auto-service business&#x27;s services, built during my AspiraSys internship.</p>
-            <ul class="mt-5 flex flex-wrap gap-2" aria-label="Tools used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">Bootstrap</li><li class="tag">JavaScript</li></ul>
-            <div class="mt-7 flex flex-wrap gap-3">
-              <a href="https://automotoservice.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for AutoMotoService (opens in new tab)</span></a>
-          <a href="https://github.com/Ibrahim-411/AutoMotoService" target="_blank" rel="noopener noreferrer" class="btn btn-ghost !px-5 !py-2.5">Code on GitHub<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for AutoMotoService (opens in new tab)</span></a>
+          </article>
+          <article class="project card reveal" id="project-kkm-crafts" aria-labelledby="kkm-crafts-title">
+            <a class="project-shot" href="https://kkm-crafts.netlify.app/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <span class="project-bar" aria-hidden="true">
+                <span class="project-dots"><i></i><i></i><i></i></span>
+                <span class="project-url">kkm-crafts.netlify.app</span>
+              </span>
+              <img src="assets/img/projects/kkm-crafts.webp" width="1200" height="750" alt="Screenshot of the KKM-Crafts website homepage" loading="lazy" decoding="async">
+            </a>
+            <div class="project-body">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="grid size-8 place-items-center rounded-lg text-xs font-extrabold tabular-nums bg-brand text-white" aria-hidden="true">06</span>
+                <span class="rounded-full bg-brand-soft text-brand-deep px-2.5 py-1 text-xs font-bold">Internship build · AspiraSys</span>
+                
+              </div>
+              <h3 id="kkm-crafts-title" class="mt-2 text-2xl font-extrabold">KKM-Crafts</h3>
+              <p class="mt-1.5 text-[0.9rem] leading-snug text-slate-700">A responsive crafts-business website, designed and built from scratch during my internship at AspiraSys.</p>
+              <div class="project-actions mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-3 pt-4">
+                <div class="flex flex-wrap gap-2.5">
+                  <a href="https://kkm-crafts.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-5 !py-2.5">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for KKM-Crafts (opens in new tab)</span></a>
+                  <a href="https://github.com/Ibrahim-411/kkm-crafts" target="_blank" rel="noopener noreferrer" class="btn btn-ghost !px-5 !py-2.5">Code on GitHub<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for KKM-Crafts (opens in new tab)</span></a>
+                </div>
+                <ul class="flex flex-wrap gap-1.5" aria-label="Tools used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">Bootstrap</li><li class="tag">JavaScript</li></ul>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+          <article class="project card reveal" id="project-automotoservice" aria-labelledby="automotoservice-title">
+            <a class="project-shot" href="https://automotoservice.netlify.app/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+              <span class="project-bar" aria-hidden="true">
+                <span class="project-dots"><i></i><i></i><i></i></span>
+                <span class="project-url">automotoservice.netlify.app</span>
+              </span>
+              <img src="assets/img/projects/automotoservice.webp" width="1200" height="750" alt="Screenshot of the AutoMotoService website, showing its login page" loading="lazy" decoding="async">
+            </a>
+            <div class="project-body">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="grid size-8 place-items-center rounded-lg text-xs font-extrabold tabular-nums bg-sun text-ink" aria-hidden="true">07</span>
+                <span class="rounded-full bg-sun-soft text-ink px-2.5 py-1 text-xs font-bold">Internship build · AspiraSys</span>
+                
+              </div>
+              <h3 id="automotoservice-title" class="mt-2 text-2xl font-extrabold">AutoMotoService</h3>
+              <p class="mt-1.5 text-[0.9rem] leading-snug text-slate-700">A responsive website that explains an auto-service business&#x27;s services, built during my AspiraSys internship.</p>
+              <div class="project-actions mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-3 pt-4">
+                <div class="flex flex-wrap gap-2.5">
+                  <a href="https://automotoservice.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary !px-5 !py-2.5">Visit live site<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for AutoMotoService (opens in new tab)</span></a>
+                  <a href="https://github.com/Ibrahim-411/AutoMotoService" target="_blank" rel="noopener noreferrer" class="btn btn-ghost !px-5 !py-2.5">Code on GitHub<svg class="size-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> for AutoMotoService (opens in new tab)</span></a>
+                </div>
+                <ul class="flex flex-wrap gap-1.5" aria-label="Tools used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">Bootstrap</li><li class="tag">JavaScript</li></ul>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
